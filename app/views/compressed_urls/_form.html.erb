@@ -1,0 +1,7 @@
+<%= form_for @url do |f| %>
+  <% if @url.persisted? %>
+    Name: <%= f.text_field :name %><br />
+  <% end %>
+  Origin Url: <%= f.text_field :origin_url %><br />
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,22 @@
+<h3> New Comment </h3>
+
+header: <%= @blog.header %> </br>
+text: <%= @blog.text %> </br>
+Comments:
+</br>
+<ul>
+<% @blog.comments.each do |comment| %>
+  <li>
+    <%= comment.text %>
+    <%= link_to 'Like', like_blog_comment_path(@blog, comment) %>
+    <%= comment.likes %>
+    <%= link_to 'Edit', edit_blog_comment_path(@blog, comment) %>
+    <%= link_to 'Delete', blog_comment_path(@blog, comment), method: :delete %>
+  </li>
+<% end %>
+</ul>
+Add comment:
+</br>
+<%= render 'form' %>
+</br>
+<%= link_to '< Back', blogs_path %>
